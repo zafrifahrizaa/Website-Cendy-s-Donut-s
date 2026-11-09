@@ -48,7 +48,7 @@ export default function ProductCard({ product }) {
           >
             <span className="w-5 h-5 flex items-center justify-center overflow-hidden">
               <img
-                src="/images/Maroon_WhatsApp.webp"
+                src={`${import.meta.env.BASE_URL}images/Maroon_WhatsApp.webp`}
                 alt="Pesan via WhatsApp"
                 className="w-full h-full object-cover object-center scale-[1.45]"
               />

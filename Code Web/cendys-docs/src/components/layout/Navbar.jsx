@@ -23,7 +23,7 @@ export default function Navbar() {
             className="flex items-center gap-2.5 sm:gap-3 text-2xl font-display italic text-choco-900 hover:text-brand-500 active:opacity-80 transition-colors group"
           >
             <img
-              src="/images/Logo Header.webp"
+              src={`${import.meta.env.BASE_URL}images/Logo Header.webp`}
               alt={`Logo ${business.name}`}
               className="h-10 sm:h-12 w-auto object-contain group-hover:scale-105 transition-transform duration-200"
             />

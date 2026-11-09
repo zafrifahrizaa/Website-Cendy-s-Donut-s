@@ -78,7 +78,7 @@ export default function CatalogPage() {
           className="!mb-0"
         />
         <a
-          href="/Cendy's%20Donut's%20Catalog.pdf"
+          href={`${import.meta.env.BASE_URL}Cendy's%20Donut's%20Catalog.pdf`}
           download="Cendy's Donut's Catalog.pdf"
           target="_blank"
           rel="noopener noreferrer"

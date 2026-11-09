@@ -15,7 +15,7 @@ export default function EmptyState({ message = "Produk tidak ditemukan.", onRese
           <Button variant="whatsapp" className="flex items-center justify-center">
             <span className="w-5 h-5 flex items-center justify-center overflow-hidden mr-2 flex-shrink-0">
               <img
-                src="/images/Maroon_WhatsApp.webp"
+                src={`${import.meta.env.BASE_URL}images/Maroon_WhatsApp.webp`}
                 alt="WhatsApp"
                 className="w-full h-full object-cover object-center scale-[1.45]"
               />

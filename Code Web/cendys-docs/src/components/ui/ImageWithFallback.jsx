@@ -12,9 +12,13 @@ export default function ImageWithFallback({ src, alt = "Produk", className = "" 
     );
   }
 
+  const resolvedSrc = src?.startsWith('/')
+    ? `${import.meta.env.BASE_URL}${src.replace(/^\/+/, '')}`
+    : src;
+
   return (
     <img
-      src={src}
+      src={resolvedSrc}
       alt={alt}
       className={className}
       onError={() => setError(true)}

@@ -112,7 +112,7 @@ export default function ProductDetailPage() {
               <Button variant="whatsapp" className="w-full py-3.5 sm:py-4 flex items-center justify-center">
                 <span className="w-5 h-5 flex items-center justify-center overflow-hidden mr-2.5 flex-shrink-0">
                   <img
-                    src="/images/Maroon_WhatsApp.webp"
+                    src={`${import.meta.env.BASE_URL}images/Maroon_WhatsApp.webp`}
                     alt="WhatsApp"
                     className="w-full h-full object-cover object-center scale-[1.45]"
                   />

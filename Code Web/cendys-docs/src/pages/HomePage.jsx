@@ -74,7 +74,7 @@ export default function HomePage() {
               <SectionTitle title="Best Seller" className="mb-0" />
               <div className="flex items-center gap-3 sm:gap-5 mb-2">
                 <a
-                  href="/Cendy's%20Donut's%20Catalog.pdf"
+                  href={`${import.meta.env.BASE_URL}Cendy's%20Donut's%20Catalog.pdf`}
                   download="Cendy's Donut's Catalog.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -108,7 +108,7 @@ export default function HomePage() {
             <Button variant="whatsapp" className="w-full sm:w-auto px-8 py-3.5 sm:py-4 flex items-center justify-center">
               <span className="w-5 h-5 flex items-center justify-center overflow-hidden mr-2.5 flex-shrink-0">
                 <img
-                  src="/images/Maroon_WhatsApp.webp"
+                  src={`${import.meta.env.BASE_URL}images/Maroon_WhatsApp.webp`}
                   alt="WhatsApp"
                   className="w-full h-full object-cover object-center scale-[1.45]"
                 />
