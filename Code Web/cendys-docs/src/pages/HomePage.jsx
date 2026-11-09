@@ -18,26 +18,52 @@ export default function HomePage() {
   return (
     <div className="overflow-x-hidden">
       {/* Hero */}
-      <section className="relative overflow-hidden bg-maroon halftone text-cream-50 py-16 sm:py-24 md:py-36 px-4 sm:px-6 border-b-4 border-double border-cream-50/30">
+      <section className="relative overflow-hidden bg-maroon halftone text-cream-50 py-12 sm:py-20 md:py-24 px-4 sm:px-6 border-b-4 border-double border-cream-50/30">
         <CornerMarks inside className="text-cream-50/60" />
-        <div className="relative max-w-6xl mx-auto text-center">
-          <h1 className="text-[clamp(2.75rem,11vw,11rem)] leading-[0.9] sm:leading-[0.85] tracking-tight italic mb-6 sm:mb-10 break-words">
-            {business.name}
-          </h1>
-          <p className="font-mono text-[11px] md:text-xs uppercase tracking-[0.16em] sm:tracking-[0.18em] mb-8 sm:mb-12 max-w-2xl mx-auto text-cream-100/70 leading-relaxed sm:leading-loose px-2">
-            Pabrik dan rumah produksi roti di Sidoarjo yang memproduksi aneka donat, roti lembut, bolu, hingga kue basah segar setiap hari. Melayani pembelian harian, pesanan acara keluarga, syukuran, hingga kebutuhan konsumsi partai besar.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 max-w-xs sm:max-w-none mx-auto">
-            <Link to="/katalog" className="w-full sm:w-auto">
-              <Button className="w-full sm:w-auto !bg-cream-50 !text-maroon !border-cream-50 hover:!bg-choco-900 hover:!border-choco-900 hover:!text-cream-50 active:!bg-choco-900 active:!text-cream-50 px-8 py-3.5 sm:py-4">
-                Lihat Katalog
-              </Button>
-            </Link>
-            <a href={generateWhatsAppLink()} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-              <Button variant="whatsapp" className="w-full sm:w-auto !bg-transparent !border-cream-50/50 hover:!bg-cream-50 hover:!text-maroon active:!bg-cream-50 active:!text-maroon px-8 py-3.5 sm:py-4">
-                Pesan Sekarang
-              </Button>
-            </a>
+        <div className="relative max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:gap-8 lg:gap-14">
+          {/* Kiri: teks + tombol */}
+          <div className="text-center md:text-left order-1">
+            <h1 className="text-[clamp(2.75rem,8vw,6.5rem)] leading-[0.95] tracking-tight italic mb-5 sm:mb-8 break-words">
+              {business.name}
+            </h1>
+            <p className="font-mono text-[11px] md:text-xs uppercase tracking-[0.16em] sm:tracking-[0.18em] mb-8 sm:mb-10 max-w-xl mx-auto md:mx-0 text-cream-100/70 leading-relaxed sm:leading-loose">
+              Pabrik dan rumah produksi roti di Sidoarjo yang memproduksi aneka donat, roti lembut, bolu, hingga kue basah segar setiap hari. Melayani pembelian harian, pesanan acara keluarga, syukuran, hingga kebutuhan konsumsi partai besar.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-3 sm:gap-4 max-w-xs sm:max-w-none mx-auto md:mx-0">
+              <Link to="/katalog" className="w-full sm:w-auto">
+                <Button className="w-full sm:w-auto !bg-cream-50 !text-maroon !border-cream-50 hover:!bg-choco-900 hover:!border-choco-900 hover:!text-cream-50 active:!bg-choco-900 active:!text-cream-50 px-8 py-3.5 sm:py-4">
+                  Lihat Katalog
+                </Button>
+              </Link>
+              <a href={generateWhatsAppLink()} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+                <Button variant="whatsapp" className="w-full sm:w-auto !bg-transparent !border-cream-50/50 hover:!bg-cream-50 hover:!text-maroon active:!bg-cream-50 active:!text-maroon px-8 py-3.5 sm:py-4">
+                  Pesan Sekarang
+                </Button>
+              </a>
+            </div>
+
+            {/* Statistik mikro (diambil dari data produk) */}
+            <dl className="mt-8 sm:mt-10 pt-5 border-t border-dashed border-cream-50/30 grid grid-cols-3 gap-3 sm:gap-6 max-w-md mx-auto md:mx-0 text-center md:text-left">
+              {[
+                { value: `${products.length}`, label: 'Varian Produk' },
+                { value: `${categories.filter(c => c.slug !== 'semua').length}`, label: 'Kategori' },
+                { value: 'Harian', label: 'Produksi Sidoarjo' },
+              ].map((stat) => (
+                <div key={stat.label}>
+                  <dt className="font-display italic text-3xl sm:text-4xl leading-none text-cream-50">{stat.value}</dt>
+                  <dd className="mt-1.5 font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.16em] text-cream-100/60 leading-snug">{stat.label}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+
+          {/* Kanan: gambar donat */}
+          <div className="order-2 flex justify-center md:justify-end">
+            <img
+              src={`${import.meta.env.BASE_URL}images/Donat header.webp`}
+              alt="Aneka donat Cendy's Donut's"
+              className="w-full max-w-[280px] sm:max-w-sm md:max-w-full lg:max-w-md max-h-[420px] md:max-h-[520px] object-contain drop-shadow-[0_18px_28px_rgba(0,0,0,0.35)]"
+            />
           </div>
         </div>
       </section>
