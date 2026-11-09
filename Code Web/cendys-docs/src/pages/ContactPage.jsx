@@ -6,50 +6,60 @@ import SectionTitle from '../components/ui/SectionTitle';
 import Button from '../components/ui/Button';
 
 export default function ContactPage() {
-  useSEO("Hubungi Kami", "Informasi kontak, lokasi alamat, WhatsApp, dan Instagram resmi Cendys Donuts.");
+  useSEO("Hubungi Kami", "Informasi kontak, lokasi alamat, WhatsApp, dan Instagram resmi Cendy's Donut's.");
 
   const mapQuery = encodeURIComponent(business.address);
 
   return (
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
-      <SectionTitle title="Hubungi Kami" subtitle="Informasi kontak dan lokasi Cendys Donuts." className="text-center" />
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
+      <SectionTitle title="Hubungi Kami" subtitle="Informasi kontak dan lokasi Cendy's Donut's." className="text-center" />
       
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12 max-w-4xl mx-auto">
-        <div className="flex flex-col space-y-10">
+      <div className="mt-8 sm:mt-12 max-w-2xl mx-auto">
+        <div className="flex flex-col space-y-8 sm:space-y-10">
           <div className="flex items-start">
-            <div className="bg-brand-500 text-white p-4 rounded-2xl mr-6 flex-shrink-0 shadow-sm">
-              <MapPin size={28} />
+            <div className="border border-choco-900 text-choco-900 p-3 sm:p-4 mr-4 sm:mr-6 flex-shrink-0 min-w-[48px] min-h-[48px] flex items-center justify-center">
+              <MapPin size={24} strokeWidth={1.5} />
             </div>
             <div>
-              <h3 className="text-xl font-display font-semibold text-choco-900 mb-2">Lokasi Usaha</h3>
-              <p className="text-choco-600 leading-relaxed max-w-sm">{business.address}</p>
-              <a href={`https://www.google.com/maps/search/?api=1&query=${mapQuery}`} target="_blank" rel="noopener noreferrer" className="text-brand-500 hover:text-brand-600 font-medium inline-block mt-3">
+              <h3 className="text-2xl sm:text-3xl font-display text-choco-900 mb-2">Lokasi</h3>
+              <p className="text-choco-600 text-sm sm:text-base leading-relaxed">{business.address}</p>
+              <a
+                href={`https://www.google.com/maps/search/?api=1&query=${mapQuery}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-brand-500 hover:text-choco-900 active:text-choco-900 font-mono text-[11px] uppercase tracking-[0.16em] border-b border-current inline-block mt-3"
+              >
                 Buka di Google Maps &rarr;
               </a>
             </div>
           </div>
 
           <div className="flex items-start">
-            <div className="bg-wa-500 text-white p-4 rounded-2xl mr-6 flex-shrink-0 shadow-sm">
-              <Phone size={28} />
+            <div className="border border-choco-900 text-choco-900 p-3 sm:p-4 mr-4 sm:mr-6 flex-shrink-0 min-w-[48px] min-h-[48px] flex items-center justify-center">
+              <Phone size={24} strokeWidth={1.5} />
             </div>
             <div>
-              <h3 className="text-xl font-display font-semibold text-choco-900 mb-2">WhatsApp</h3>
-              <p className="text-choco-600 mb-4">{business.whatsapp.display}</p>
-              <a href={generateWhatsAppLink()} target="_blank" rel="noopener noreferrer">
+              <h3 className="text-2xl sm:text-3xl font-display text-choco-900 mb-2">WhatsApp</h3>
+              <p className="text-choco-600 text-sm sm:text-base mb-4">{business.whatsapp.display}</p>
+              <a href={generateWhatsAppLink()} target="_blank" rel="noopener noreferrer" className="inline-block">
                 <Button variant="whatsapp">Mulai Obrolan</Button>
               </a>
             </div>
           </div>
 
           <div className="flex items-start">
-            <div className="bg-pink-600 text-white p-4 rounded-2xl mr-6 flex-shrink-0 shadow-sm">
-              <AtSign size={28} />
+            <div className="border border-choco-900 text-choco-900 p-3 sm:p-4 mr-4 sm:mr-6 flex-shrink-0 min-w-[48px] min-h-[48px] flex items-center justify-center">
+              <AtSign size={24} strokeWidth={1.5} />
             </div>
             <div>
-              <h3 className="text-xl font-display font-semibold text-choco-900 mb-2">Instagram</h3>
-              <p className="text-choco-600 mb-3">{business.instagram}</p>
-              <a href={`https://instagram.com/${business.instagram.replace('@', '')}`} target="_blank" rel="noopener noreferrer" className="text-brand-500 hover:text-brand-600 font-medium">
+              <h3 className="text-2xl sm:text-3xl font-display text-choco-900 mb-2">Instagram</h3>
+              <p className="text-choco-600 text-sm sm:text-base mb-3">{business.instagram}</p>
+              <a
+                href={`https://instagram.com/${business.instagram.replace('@', '')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-brand-500 hover:text-choco-900 active:text-choco-900 font-mono text-[11px] uppercase tracking-[0.16em] border-b border-current inline-block"
+              >
                 Kunjungi Profil &rarr;
               </a>
             </div>

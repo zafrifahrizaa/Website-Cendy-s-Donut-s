@@ -5,7 +5,7 @@ import ScrollToTop from './ScrollToTop';
 
 export default function Layout({ children }) {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-[100dvh] flex flex-col overflow-x-hidden">
       <ScrollToTop />
       <Navbar />
       <main className="flex-grow pt-16">

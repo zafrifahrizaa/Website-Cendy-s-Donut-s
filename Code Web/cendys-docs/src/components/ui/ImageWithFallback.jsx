@@ -1,11 +1,24 @@
+import { useState } from 'react';
 import { Cookie } from 'lucide-react';
 
-export default function ImageWithFallback({ src, alt, className = "" }) {
-  // Assuming images aren't present yet, always show fallback for now.
-  // We can add actual fallback logic if requested later.
+export default function ImageWithFallback({ src, alt = "Produk", className = "" }) {
+  const [error, setError] = useState(false);
+
+  if (!src || error) {
+    return (
+      <div className={`bg-cream-100 flex items-center justify-center text-choco-600 ${className}`}>
+        <Cookie size={44} strokeWidth={1} opacity={0.6} />
+      </div>
+    );
+  }
+
   return (
-    <div className={`bg-cream-100 flex items-center justify-center text-choco-600 ${className}`}>
-      <Cookie size={48} opacity={0.5} />
-    </div>
+    <img
+      src={src}
+      alt={alt}
+      className={className}
+      onError={() => setError(true)}
+      loading="lazy"
+    />
   );
 }

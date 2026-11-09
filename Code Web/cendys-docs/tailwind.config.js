@@ -6,16 +6,20 @@ export default {
   ],
   theme: {
     extend: {
+      // Token names dipertahankan agar layout/komponen tidak berubah; hanya nilainya yang diganti.
       colors: {
-        brand: { 500: '#D97706', 600: '#B45309' },
-        cream: { 50: '#FFFBF5', 100: '#FEF3E2' },
-        choco: { 600: '#6B4A35', 900: '#3B2314' },
-        wa: { 500: '#25D366', 600: '#1EBE5A' }
+        brand: { 500: '#8E2835', 600: '#6F1E29' },      // spiced jam / burnt berry
+        maroon: '#5B131E',                               // vintage oxblood (hero statement)
+        cream: { 50: '#F6F4EE', 100: '#EAE6DC' },        // raw chalk / oatmeal dough
+        choco: { 600: '#6B655D', 900: '#161413' },       // muted ink / roasted bean
+        wa: { 500: '#161413', 600: '#5B131E' },          // aksi WhatsApp: ink -> oxblood saat hover
+        line: '#D8D2C4',                                 // hairline border
       },
       fontFamily: {
-        display: ['Poppins', 'system-ui', 'sans-serif'],
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-      }
+        display: ['"Instrument Serif"', 'Georgia', 'serif'],
+        sans: ['"Inter Tight"', 'system-ui', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+      },
     },
   },
   plugins: [],

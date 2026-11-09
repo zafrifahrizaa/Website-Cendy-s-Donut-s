@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 export default function useSEO(title, description) {
   useEffect(() => {
-    document.title = `${title} | Cendys Donuts`;
+    document.title = `${title} | Cendy's Donut's`;
     
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) metaDesc.setAttribute('content', description);

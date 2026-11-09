@@ -1,5 +1,5 @@
 export const business = {
-  name: "Cendys Donuts",
+  name: "Cendy's Donut's",
   owner: "Sri Wahyuni",
   type: "Pabrik roti / produksi roti",
   address: "Jl. Sunan Muria, RT.01/RW.01, Waras, Sugihwaras, Kec. Candi, Kabupaten Sidoarjo, Jawa Timur 61271",

@@ -1,16 +1,17 @@
 export default function CategoryTabs({ categories, activeCategory, onSelect }) {
   return (
-    <div className="flex overflow-x-auto hide-scrollbar space-x-2 pb-2 mb-4">
+    <div className="flex overflow-x-auto hide-scrollbar smooth-touch-scroll space-x-2 pb-2 mb-3 -mx-4 px-4 sm:mx-0 sm:px-0">
       {categories.map((cat) => {
         const isActive = activeCategory === cat.slug || (!activeCategory && cat.slug === 'semua');
         return (
           <button
             key={cat.slug}
+            type="button"
             onClick={() => onSelect(cat.slug)}
-            className={`whitespace-nowrap px-4 py-2 rounded-full font-medium transition-colors ${
+            className={`flex-shrink-0 whitespace-nowrap min-h-[40px] px-4 py-2 border font-mono text-[11px] uppercase tracking-[0.16em] transition-all duration-200 active:scale-[0.98] select-none ${
               isActive
-                ? 'bg-brand-500 text-white'
-                : 'bg-cream-100 text-choco-600 hover:bg-cream-50 hover:text-brand-500'
+                ? 'bg-choco-900 text-cream-50 border-choco-900'
+                : 'bg-cream-50 text-choco-600 border-line hover:border-choco-900 hover:text-choco-900 active:bg-cream-100'
             }`}
           >
             {cat.label}
