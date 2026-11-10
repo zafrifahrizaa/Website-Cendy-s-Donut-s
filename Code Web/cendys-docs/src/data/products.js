@@ -24,7 +24,7 @@ export const products = [
     subcategory: "best-seller",
     price: null,
     priceVariants: [],
-    image: "/images/products/roti-gembul.jpg",
+    image: "/images/products/RotiGembul.webp",
     description: EMPTY,
   },
   {
@@ -36,7 +36,7 @@ export const products = [
     subcategory: "best-seller",
     price: null,
     priceVariants: [],
-    image: "/images/products/roti-bulet.jpg",
+    image: "/images/products/RotiBulet.webp",
     description: EMPTY,
   },
   {
@@ -48,7 +48,7 @@ export const products = [
     subcategory: "best-seller",
     price: null,
     priceVariants: [],
-    image: "/images/products/roti-roll-abon.jpg",
+    image: "/images/products/RotiRollAbon.webp",
     description: EMPTY,
   },
   {
@@ -60,7 +60,7 @@ export const products = [
     subcategory: "best-seller",
     price: null,
     priceVariants: [],
-    image: "/images/products/roti-bolen.jpg",
+    image: "/images/products/RotiBolen.webp",
     description: EMPTY,
   },
   {
@@ -72,7 +72,7 @@ export const products = [
     subcategory: "best-seller",
     price: null,
     priceVariants: [],
-    image: "/images/products/roti-bulat-variasi.jpg",
+    image: "/images/products/RotiBulatVariasi.webp",
     description: EMPTY,
   },
   {
@@ -84,7 +84,7 @@ export const products = [
     subcategory: "best-seller",
     price: null,
     priceVariants: [],
-    image: "/images/products/roti-kotak-topping-basah.jpg",
+    image: "/images/products/RotiKotakTopingBasah.webp",
     description: EMPTY,
   },
   {
@@ -96,7 +96,7 @@ export const products = [
     subcategory: "best-seller",
     price: null,
     priceVariants: [],
-    image: "/images/products/roti-kotak-topping-kering.jpg",
+    image: "/images/products/RotiKotakTopingKering.webp",
     description: EMPTY,
   },
   {
@@ -108,7 +108,7 @@ export const products = [
     subcategory: "sosis-keju",
     price: null,
     priceVariants: [],
-    image: "/images/products/roti-sosis-keju.jpg",
+    image: "/images/products/RotiSosisKeju.webp",
     description: EMPTY,
   },
   {
@@ -120,7 +120,7 @@ export const products = [
     subcategory: "sosis-keju",
     price: null,
     priceVariants: [],
-    image: "/images/products/roti-sosis-bulat.jpg",
+    image: "/images/products/RotiSosisBulat.webp",
     description: EMPTY,
   },
   {
@@ -132,7 +132,7 @@ export const products = [
     subcategory: "sosis-keju",
     price: null,
     priceVariants: [],
-    image: "/images/products/roti-kepang-sosis.jpg",
+    image: "/images/products/RotiKepangSosis.webp",
     description: EMPTY,
   },
   {
@@ -156,7 +156,7 @@ export const products = [
     subcategory: "sosis-keju",
     price: null,
     priceVariants: [],
-    image: "/images/products/roti-beef.jpg",
+    image: "/images/products/RotiBeef.webp",
     description: EMPTY,
   },
   {
@@ -168,7 +168,7 @@ export const products = [
     subcategory: "abon",
     price: null,
     priceVariants: [],
-    image: "/images/products/roti-abon-oval.jpg",
+    image: "/images/products/RotiAbonOval.webp",
     description: EMPTY,
   },
   {
@@ -204,7 +204,7 @@ export const products = [
     subcategory: "wijen-vanilla",
     price: null,
     priceVariants: [],
-    image: "/images/products/roti-wijen-oval.jpg",
+    image: "/images/products/RotiWijenOval.webp",
     description: EMPTY,
   },
   {
@@ -216,7 +216,7 @@ export const products = [
     subcategory: "wijen-vanilla",
     price: null,
     priceVariants: [],
-    image: "/images/products/roti-wijen-lava.jpg",
+    image: "/images/products/RotiWijenLava.webp",
     description: EMPTY,
   },
   {
@@ -228,7 +228,7 @@ export const products = [
     subcategory: "wijen-vanilla",
     price: null,
     priceVariants: [],
-    image: "/images/products/roti-wijen.jpg",
+    image: "/images/products/RotiWijen.webp",
     description: EMPTY,
   },
   {
@@ -252,7 +252,7 @@ export const products = [
     subcategory: "wijen-vanilla",
     price: null,
     priceVariants: [],
-    image: "/images/products/roti-vanilla.jpg",
+    image: "/images/products/RotiVanilla.webp",
     description: EMPTY,
   },
   {
@@ -264,7 +264,7 @@ export const products = [
     subcategory: "keju-coklat",
     price: null,
     priceVariants: [],
-    image: "/images/products/roti-kepang-keju-coklat.jpg",
+    image: "/images/products/RotiKepangKejuCoklat ",
     description: EMPTY,
   },
   {
@@ -276,7 +276,7 @@ export const products = [
     subcategory: "keju-coklat",
     price: null,
     priceVariants: [],
-    image: "/images/products/roti-gelung-keju-coklat.jpg",
+    image: "/images/products/RotiGelungKejuCoklat.webp",
     description: EMPTY,
   },
   {
@@ -288,7 +288,7 @@ export const products = [
     subcategory: "keju-coklat",
     price: null,
     priceVariants: [],
-    image: "/images/products/roti-oval-keju-dan-misses.jpg",
+    image: "/images/products/RotiOvalKejuDanMisses.webp",
     description: EMPTY,
   },
   {
@@ -300,7 +300,7 @@ export const products = [
     subcategory: "keju-coklat",
     price: null,
     priceVariants: [],
-    image: "/images/products/roti-cup-kepang.jpg",
+    image: "/images/products/RotiCupKepang.webp",
     description: EMPTY,
   },
   {
@@ -312,7 +312,7 @@ export const products = [
     subcategory: "keju-coklat",
     price: null,
     priceVariants: [],
-    image: "/images/products/roti-cup-2-rasa.jpg",
+    image: "/images/products/RotiCup2Rasa.webp",
     description: EMPTY,
   },
   {
@@ -336,7 +336,7 @@ export const products = [
     subcategory: "kepang-molen",
     price: null,
     priceVariants: [],
-    image: "/images/products/roti-kepang-besar.jpg",
+    image: "/images/products/RotiKepangBesar.webp",
     description: EMPTY,
   },
   {
@@ -396,7 +396,7 @@ export const products = [
     subcategory: "roti-lainnya",
     price: null,
     priceVariants: [],
-    image: "/images/products/roti-sakura.jpg",
+    image: "/images/products/RotiSakura.webp",
     description: EMPTY,
   },
   {
@@ -408,7 +408,7 @@ export const products = [
     subcategory: "roti-lainnya",
     price: null,
     priceVariants: [],
-    image: "/images/products/roti-krumpul-uk-15.jpg",
+    image: "/images/products/RotiKrumpulUk15.webp",
     description: EMPTY,
   },
   {
@@ -420,7 +420,7 @@ export const products = [
     subcategory: "roti-lainnya",
     price: null,
     priceVariants: [],
-    image: "/images/products/roti-roll-misses.jpg",
+    image: "/images/products/RotiRollMisses.webp",
     description: EMPTY,
   },
   {
@@ -528,7 +528,7 @@ export const products = [
     subcategory: null,
     price: null,
     priceVariants: [],
-    image: "/images/products/roti-bolu-original.jpg",
+    image: "/images/products/RotiBoluOriginal.webp",
     description: EMPTY,
   },
   {
@@ -540,7 +540,7 @@ export const products = [
     subcategory: null,
     price: null,
     priceVariants: [],
-    image: "/images/products/roti-bolu-pandan.jpg",
+    image: "/images/products/RotiBoluPandan.webp",
     description: EMPTY,
   },
   {
@@ -552,7 +552,7 @@ export const products = [
     subcategory: null,
     price: null,
     priceVariants: [],
-    image: "/images/products/roti-bolu-coklat.jpg",
+    image: "/images/products/RotiBoluCoklat.webp",
     description: EMPTY,
   },
   {
