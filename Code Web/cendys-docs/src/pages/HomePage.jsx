@@ -18,52 +18,56 @@ export default function HomePage() {
   return (
     <div className="overflow-x-hidden">
       {/* Hero */}
-      <section className="relative overflow-hidden bg-maroon halftone text-cream-50 py-12 sm:py-20 md:py-24 px-4 sm:px-6 border-b-4 border-double border-cream-50/30">
+      <section className="relative overflow-hidden bg-maroon halftone text-cream-50 py-10 sm:py-16 md:py-24 px-4 sm:px-6 border-b-4 border-double border-cream-50/30">
         <CornerMarks inside className="text-cream-50/60" />
-        <div className="relative max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:gap-8 lg:gap-14">
-          {/* Kiri: teks + tombol */}
-          <div className="text-center md:text-left order-1">
-            <h1 className="text-[clamp(2.75rem,8vw,6.5rem)] leading-[0.95] tracking-tight italic mb-5 sm:mb-8 break-words">
+        <div className="relative max-w-6xl mx-auto grid grid-cols-12 md:grid-cols-2 items-center gap-x-3 sm:gap-x-6 md:gap-x-10 lg:gap-x-14 gap-y-6 md:gap-y-0">
+          {/* Atas/Kiri: Judul + Deskripsi */}
+          <div className="col-span-7 md:col-span-1 md:col-start-1 md:row-start-1 md:self-end text-left">
+            <h1 className="text-[clamp(2rem,8.5vw,6.25rem)] leading-[0.95] tracking-tight italic mb-3 sm:mb-6 break-words">
               {business.name}
             </h1>
-            <p className="font-mono text-[11px] md:text-xs uppercase tracking-[0.16em] sm:tracking-[0.18em] mb-8 sm:mb-10 max-w-xl mx-auto md:mx-0 text-cream-100/70 leading-relaxed sm:leading-loose">
+            <p className="font-mono text-[10px] sm:text-[11px] md:text-xs uppercase tracking-[0.12em] sm:tracking-[0.16em] md:tracking-[0.18em] md:mb-8 max-w-xl text-cream-100/75 leading-relaxed sm:leading-loose">
               Pabrik dan rumah produksi roti di Sidoarjo yang memproduksi aneka donat, roti lembut, bolu, hingga kue basah segar setiap hari. Melayani pembelian harian, pesanan acara keluarga, syukuran, hingga kebutuhan konsumsi partai besar.
             </p>
-            <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-3 sm:gap-4 max-w-xs sm:max-w-none mx-auto md:mx-0">
+          </div>
+
+          {/* Kanan: Gambar donat (tetap sejajar di samping judul pada mobile) */}
+          <div className="col-span-5 md:col-span-1 md:col-start-2 md:row-start-1 md:row-span-2 flex justify-center md:justify-end">
+            <img
+              src={`${import.meta.env.BASE_URL}images/Donat header.webp`}
+              alt="Aneka donat Cendy's Donut's"
+              className="w-full max-w-[170px] sm:max-w-[260px] md:max-w-full lg:max-w-md max-h-[240px] sm:max-h-[340px] md:max-h-[520px] object-contain drop-shadow-[0_14px_24px_rgba(0,0,0,0.35)]"
+            />
+          </div>
+
+          {/* Bawah (Mobile) / Kiri Bawah (Desktop): Tombol + Statistik */}
+          <div className="col-span-12 md:col-span-1 md:col-start-1 md:row-start-2 md:self-start text-center md:text-left">
+            <div className="grid grid-cols-2 sm:flex sm:flex-row justify-center md:justify-start gap-2.5 sm:gap-4 w-full sm:w-auto">
               <Link to="/katalog" className="w-full sm:w-auto">
-                <Button className="w-full sm:w-auto !bg-cream-50 !text-maroon !border-cream-50 hover:!bg-choco-900 hover:!border-choco-900 hover:!text-cream-50 active:!bg-choco-900 active:!text-cream-50 px-8 py-3.5 sm:py-4">
+                <Button className="w-full sm:w-auto !bg-cream-50 !text-maroon !border-cream-50 hover:!bg-choco-900 hover:!border-choco-900 hover:!text-cream-50 active:!bg-choco-900 active:!text-cream-50 !px-3 sm:!px-8 py-3.5 sm:py-4 !text-[11px] sm:!text-[13px]">
                   Lihat Katalog
                 </Button>
               </Link>
               <a href={generateWhatsAppLink()} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
-                <Button variant="whatsapp" className="w-full sm:w-auto !bg-transparent !border-cream-50/50 hover:!bg-cream-50 hover:!text-maroon active:!bg-cream-50 active:!text-maroon px-8 py-3.5 sm:py-4">
+                <Button variant="whatsapp" className="w-full sm:w-auto !bg-transparent !border-cream-50/50 hover:!bg-cream-50 hover:!text-maroon active:!bg-cream-50 active:!text-maroon !px-3 sm:!px-8 py-3.5 sm:py-4 !text-[11px] sm:!text-[13px]">
                   Pesan Sekarang
                 </Button>
               </a>
             </div>
 
             {/* Statistik mikro (diambil dari data produk) */}
-            <dl className="mt-8 sm:mt-10 pt-5 border-t border-dashed border-cream-50/30 grid grid-cols-3 gap-3 sm:gap-6 max-w-md mx-auto md:mx-0 text-center md:text-left">
+            <dl className="mt-6 sm:mt-10 pt-5 border-t border-dashed border-cream-50/30 grid grid-cols-3 gap-3 sm:gap-6 max-w-md mx-auto md:mx-0 text-center md:text-left">
               {[
                 { value: `${products.length}`, label: 'Varian Produk' },
                 { value: `${categories.filter(c => c.slug !== 'semua').length}`, label: 'Kategori' },
                 { value: 'Harian', label: 'Produksi Sidoarjo' },
               ].map((stat) => (
                 <div key={stat.label}>
-                  <dt className="font-display italic text-3xl sm:text-4xl leading-none text-cream-50">{stat.value}</dt>
-                  <dd className="mt-1.5 font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.16em] text-cream-100/60 leading-snug">{stat.label}</dd>
+                  <dt className="font-display italic text-2xl sm:text-4xl leading-none text-cream-50">{stat.value}</dt>
+                  <dd className="mt-1.5 font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.14em] sm:tracking-[0.16em] text-cream-100/60 leading-snug">{stat.label}</dd>
                 </div>
               ))}
             </dl>
-          </div>
-
-          {/* Kanan: gambar donat */}
-          <div className="order-2 flex justify-center md:justify-end">
-            <img
-              src={`${import.meta.env.BASE_URL}images/Donat header.webp`}
-              alt="Aneka donat Cendy's Donut's"
-              className="w-full max-w-[280px] sm:max-w-sm md:max-w-full lg:max-w-md max-h-[420px] md:max-h-[520px] object-contain drop-shadow-[0_18px_28px_rgba(0,0,0,0.35)]"
-            />
           </div>
         </div>
       </section>
