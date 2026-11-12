@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
-import { business } from '../../data/business';
+import { useStore } from '../../context/storeState';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { settings } = useStore();
 
   const links = [
     { name: 'Beranda', path: '/' },
@@ -14,7 +15,7 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="bg-cream-50/95 backdrop-blur-md border-b border-line fixed w-full top-0 z-50 transition-colors">
+    <nav className="bg-cream-50 border-b border-line fixed w-full top-0 z-50 transition-colors">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex justify-between h-16 items-center">
           <Link
@@ -24,10 +25,10 @@ export default function Navbar() {
           >
             <img
               src={`${import.meta.env.BASE_URL}images/Logo Header.webp`}
-              alt={`Logo ${business.name}`}
+              alt={`Logo ${settings.brandName}`}
               className="h-10 sm:h-12 w-auto object-contain group-hover:scale-105 transition-transform duration-200"
             />
-            <span>{business.name}</span>
+            <span>{settings.brandName}</span>
           </Link>
 
           <div className="hidden md:flex space-x-10">

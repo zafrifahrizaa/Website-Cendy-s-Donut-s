@@ -3,6 +3,7 @@ import { Cookie } from 'lucide-react';
 
 export default function ImageWithFallback({ src, alt = "Produk", className = "" }) {
   const [error, setError] = useState(false);
+  const [loaded, setLoaded] = useState(false);
 
   if (!src || error) {
     return (
@@ -20,9 +21,11 @@ export default function ImageWithFallback({ src, alt = "Produk", className = "" 
     <img
       src={resolvedSrc}
       alt={alt}
-      className={className}
+      className={`${className} transition-opacity duration-300 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+      onLoad={() => setLoaded(true)}
       onError={() => setError(true)}
       loading="lazy"
+      decoding="async"
     />
   );
 }

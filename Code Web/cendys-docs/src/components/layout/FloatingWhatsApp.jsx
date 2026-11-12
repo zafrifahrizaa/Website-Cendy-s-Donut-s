@@ -1,9 +1,12 @@
 import { generateWhatsAppLink } from '../../utils/whatsapp';
+import { useStore } from '../../context/storeState';
 
 export default function FloatingWhatsApp() {
+  const { settings } = useStore();
+
   return (
     <a
-      href={generateWhatsAppLink()}
+      href={generateWhatsAppLink(undefined, settings.whatsappNumber, settings.brandName)}
       target="_blank"
       rel="noopener noreferrer"
       style={{

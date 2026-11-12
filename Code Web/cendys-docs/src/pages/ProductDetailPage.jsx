@@ -2,10 +2,10 @@ import useSEO from '../hooks/useSEO';
 import { useParams, Link } from 'react-router-dom';
 import { useMemo } from 'react';
 import { ChevronRight, ArrowLeft } from 'lucide-react';
-import { products } from '../data/products';
 import { categories } from '../data/categories';
 import { generateWhatsAppLink } from '../utils/whatsapp';
 import { PLACEHOLDER_DESCRIPTION } from '../utils/constants';
+import { useStore } from '../context/storeState';
 import ImageWithFallback from '../components/ui/ImageWithFallback';
 import Button from '../components/ui/Button';
 import PriceDisplay from '../components/product/PriceDisplay';
@@ -16,18 +16,19 @@ import CornerMarks from '../components/ui/CornerMarks';
 
 export default function ProductDetailPage() {
   const { slug } = useParams();
+  const { products, settings } = useStore();
 
-  const product = useMemo(() => products.find((p) => p.slug === slug), [slug]);
+  const product = useMemo(() => products.find((p) => p.slug === slug), [products, slug]);
 
   const similarProducts = useMemo(() => {
     if (!product) return [];
     return products
       .filter((p) => p.category === product.category && p.id !== product.id)
       .slice(0, 4);
-  }, [product]);
+  }, [products, product]);
 
   const title = product ? product.name : 'Tidak Ditemukan';
-  const desc = product ? `Pesan ${product.name} di Cendy's Donut's. ${product.description || ''}`.substring(0, 150) : 'Produk tidak ditemukan.';
+  const desc = product ? `Pesan ${product.name} di ${settings.brandName}. ${product.description || ''}`.substring(0, 150) : 'Produk tidak ditemukan.';
   useSEO(title, desc);
 
   if (!product) {
@@ -48,7 +49,7 @@ export default function ProductDetailPage() {
   const categoryObj = categories.find((c) => c.slug === product.category) || {};
   const categoryLabel = categoryObj.label || product.category;
   
-  const waMessage = `Halo Cendy's Donut's, saya tertarik memesan produk ${product.name}.`;
+  const waMessage = `Halo ${settings.brandName}, saya tertarik memesan produk ${product.name}.`;
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
@@ -108,7 +109,7 @@ export default function ProductDetailPage() {
           </div>
 
           <div className="mt-auto pt-4 border-t border-line">
-            <a href={generateWhatsAppLink(waMessage)} target="_blank" rel="noopener noreferrer" className="block">
+            <a href={generateWhatsAppLink(waMessage, settings.whatsappNumber, settings.brandName)} target="_blank" rel="noopener noreferrer" className="block">
               <Button variant="whatsapp" className="w-full py-3.5 sm:py-4 flex items-center justify-center">
                 <span className="w-5 h-5 flex items-center justify-center overflow-hidden mr-2.5 flex-shrink-0">
                   <img

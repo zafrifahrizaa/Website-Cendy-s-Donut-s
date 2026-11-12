@@ -264,7 +264,7 @@ export const products = [
     subcategory: "keju-coklat",
     price: null,
     priceVariants: [],
-    image: "/images/products/RotiKepangKejuCoklat ",
+    image: "/images/products/RotiKepangKejuCoklat.webp",
     description: EMPTY,
   },
   {

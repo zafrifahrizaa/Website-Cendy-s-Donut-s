@@ -1,19 +1,22 @@
 import useSEO from '../hooks/useSEO';
 import { Link } from 'react-router-dom';
 import { ArrowRight, FileDown } from 'lucide-react';
-import { business } from '../data/business';
-import { products } from '../data/products';
 import { categories } from '../data/categories';
 import { generateWhatsAppLink } from '../utils/whatsapp';
+import { useStore } from '../context/storeState';
 import Button from '../components/ui/Button';
 import SectionTitle from '../components/ui/SectionTitle';
 import ProductGrid from '../components/product/ProductGrid';
 import CornerMarks from '../components/ui/CornerMarks';
 
 export default function HomePage() {
-  useSEO("Beranda", "Selamat datang di Cendy's Donut's. Kami melayani pelanggan di sekitar Sidoarjo dengan berbagai pilihan roti dan kue.");
+  const { products, settings } = useStore();
+  useSEO("Beranda", `Selamat datang di ${settings.brandName}. Kami melayani pelanggan di sekitar Sidoarjo dengan berbagai pilihan roti dan kue.`);
 
   const bestSellers = products.filter(p => p.subcategory === 'best-seller').slice(0, 4);
+  const heroImageSrc = settings.heroImage?.startsWith('/')
+    ? `${import.meta.env.BASE_URL}${settings.heroImage.replace(/^\/+/, '')}`
+    : settings.heroImage || `${import.meta.env.BASE_URL}images/Donat header.webp`;
 
   return (
     <div className="overflow-x-hidden">
@@ -24,18 +27,18 @@ export default function HomePage() {
           {/* Atas/Kiri: Judul + Deskripsi */}
           <div className="col-span-7 md:col-span-1 md:col-start-1 md:row-start-1 md:self-end text-left">
             <h1 className="text-[clamp(2rem,8.5vw,6.25rem)] leading-[0.95] tracking-tight italic mb-3 sm:mb-6 break-words">
-              {business.name}
+              {settings.brandName}
             </h1>
             <p className="font-mono text-[10px] sm:text-[11px] md:text-xs uppercase tracking-[0.12em] sm:tracking-[0.16em] md:tracking-[0.18em] md:mb-8 max-w-xl text-cream-100/75 leading-relaxed sm:leading-loose">
-              Pabrik dan rumah produksi roti di Sidoarjo yang memproduksi aneka donat, roti lembut, bolu, hingga kue basah segar setiap hari. Melayani pembelian harian, pesanan acara keluarga, syukuran, hingga kebutuhan konsumsi partai besar.
+              {settings.heroDescription}
             </p>
           </div>
 
           {/* Kanan: Gambar donat (tetap sejajar di samping judul pada mobile) */}
           <div className="col-span-5 md:col-span-1 md:col-start-2 md:row-start-1 md:row-span-2 flex justify-center md:justify-end">
             <img
-              src={`${import.meta.env.BASE_URL}images/Donat header.webp`}
-              alt="Aneka donat Cendy's Donut's"
+              src={heroImageSrc}
+              alt={`Aneka donat ${settings.brandName}`}
               className="w-full max-w-[170px] sm:max-w-[260px] md:max-w-full lg:max-w-md max-h-[240px] sm:max-h-[340px] md:max-h-[520px] object-contain drop-shadow-[0_14px_24px_rgba(0,0,0,0.35)]"
             />
           </div>
@@ -48,7 +51,7 @@ export default function HomePage() {
                   Lihat Katalog
                 </Button>
               </Link>
-              <a href={generateWhatsAppLink()} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
+              <a href={generateWhatsAppLink(undefined, settings.whatsappNumber, settings.brandName)} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
                 <Button variant="whatsapp" className="w-full sm:w-auto !bg-transparent !border-cream-50/50 hover:!bg-cream-50 hover:!text-maroon active:!bg-cream-50 active:!text-maroon !px-3 sm:!px-8 py-3.5 sm:py-4 !text-[11px] sm:!text-[13px]">
                   Pesan Sekarang
                 </Button>
@@ -134,7 +137,7 @@ export default function HomePage() {
           <p className="text-choco-600 mb-8 sm:mb-10 text-base sm:text-lg max-w-lg mx-auto">
             Hubungi kami secara langsung melalui WhatsApp untuk melakukan pemesanan.
           </p>
-          <a href={generateWhatsAppLink()} target="_blank" rel="noopener noreferrer" className="inline-block w-full sm:w-auto">
+          <a href={generateWhatsAppLink(undefined, settings.whatsappNumber, settings.brandName)} target="_blank" rel="noopener noreferrer" className="inline-block w-full sm:w-auto">
             <Button variant="whatsapp" className="w-full sm:w-auto px-8 py-3.5 sm:py-4 flex items-center justify-center">
               <span className="w-5 h-5 flex items-center justify-center overflow-hidden mr-2.5 flex-shrink-0">
                 <img

@@ -1,15 +1,17 @@
 import { Link } from 'react-router-dom';
 import { generateWhatsAppLink } from '../../utils/whatsapp';
+import { useStore } from '../../context/storeState';
 import ImageWithFallback from '../ui/ImageWithFallback';
 import PriceTicket from './PriceTicket';
 
 export default function ProductCard({ product }) {
-  const waMessage = `Halo Cendy's Donut's, saya tertarik dengan produk ${product.name}.`;
+  const { settings } = useStore();
+  const waMessage = `Halo ${settings.brandName}, saya tertarik dengan produk ${product.name}.`;
   const code = `No. ${String(product.id).padStart(3, '0')}`;
   const isBestSeller = product.subcategory === 'best-seller';
 
   return (
-    <div className="group flex flex-col h-full border border-dashed border-line p-2 sm:p-3 bg-cream-50/70">
+    <div className="product-card-opt group flex flex-col h-full border border-dashed border-line p-2 sm:p-3 bg-cream-50/70">
       <Link
         to={`/produk/${product.slug}`}
         className="block relative aspect-square overflow-hidden border border-line bg-cream-100 active:opacity-90 transition-opacity"
@@ -17,7 +19,7 @@ export default function ProductCard({ product }) {
         <ImageWithFallback
           src={product.image}
           alt={product.name}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          className="w-full h-full object-cover md:group-hover:scale-105 transition-transform duration-300"
         />
 
         {isBestSeller && (
@@ -39,7 +41,7 @@ export default function ProductCard({ product }) {
         </Link>
         <PriceTicket price={product.price} code={code} className="mt-auto">
           <a
-            href={generateWhatsAppLink(waMessage)}
+            href={generateWhatsAppLink(waMessage, settings.whatsappNumber, settings.brandName)}
             target="_blank"
             rel="noopener noreferrer"
             className="min-w-[40px] min-h-[40px] p-2 text-choco-900 hover:text-brand-500 active:text-brand-500 active:scale-95 transition-all duration-200 flex items-center justify-center touch-manipulation"

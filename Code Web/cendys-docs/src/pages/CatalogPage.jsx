@@ -2,9 +2,9 @@ import useSEO from '../hooks/useSEO';
 import { useMemo, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { FileDown } from 'lucide-react';
-import { products } from '../data/products';
 import { categories } from '../data/categories';
 import { filterProducts } from '../utils/filterProducts';
+import { useStore } from '../context/storeState';
 import SectionTitle from '../components/ui/SectionTitle';
 import SearchBar from '../components/product/SearchBar';
 import CategoryTabs from '../components/product/CategoryTabs';
@@ -13,7 +13,8 @@ import ProductGrid from '../components/product/ProductGrid';
 import Watermark from '../components/ui/Watermark';
 
 export default function CatalogPage() {
-  useSEO("Katalog Produk", "Lihat katalog lengkap produk roti, donat, bolu, dan kue basah dari Cendy's Donut's.");
+  const { products, settings } = useStore();
+  useSEO("Katalog Produk", `Lihat katalog lengkap produk roti, donat, bolu, dan kue basah dari ${settings.brandName}.`);
 
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -29,7 +30,7 @@ export default function CatalogPage() {
   // Filter products using utility function
   const filteredProducts = useMemo(() => {
     return filterProducts(products, categoryParam, subcategoryParam, searchParam);
-  }, [categoryParam, subcategoryParam, searchParam]);
+  }, [products, categoryParam, subcategoryParam, searchParam]);
 
   // Handlers for updating URL params
   const handleCategoryChange = useCallback((newCategory) => {
@@ -88,7 +89,7 @@ export default function CatalogPage() {
         </a>
       </div>
       
-      <div className="sticky top-16 z-30 bg-cream-50/95 backdrop-blur-md pt-2 pb-1 mb-4 border-b-4 border-double border-line">
+      <div className="sticky top-16 z-30 bg-cream-50 pt-2 pb-1 mb-4 border-b-4 border-double border-line">
         <SearchBar value={searchParam} onChange={handleSearchChange} />
         <CategoryTabs 
           categories={categories} 
